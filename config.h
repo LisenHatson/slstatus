@@ -66,14 +66,12 @@ static const char unknown_str[] = "n/a";
 
 static const struct arg args[] = {
 	/* function format       argument       argument_2 */ 
-	{ uptime, 		 "[ UP %s]",   NULL },	
 	{ cpu_perc,              "[ CPU %s%%]",    NULL },       // CPU usage (percent)
 	{ ram_perc,              "[ RAM %s%%]",    NULL },       // RAM usage (percent)
-	{ run_command,           "  %s",         "awk -F'[][]' '/Left:/ { print $2 }' <(amixer sget Master)"}, // System volume (percentage)
-														 //
-	{ battery_perc,          "  %s%%",        "BAT0" },        // Battery charge (percent)
-	{ battery_state,         "%s ",           "BAT0" },        // Battery charging state
-	{ datetime, "%s", "%a %b %d %R.%S " },
-	{ username,		 "<%s/",	   NULL },
-	{ hostname,		 "%s>",		   NULL },
+	{ run_command,           "[ %s]",         "awk -F'[][]' '/Left:/ { print $2 }' <(amixer sget Master)"}, // System volume (percentage)												 //
+	{ battery_perc,          "{ %s%%",      "BAT0" },        // Battery charge (percent)
+	{ battery_state,         "%s|",           "BAT0" },        // Battery charging state
+	{ battery_perc,          "%s%%",      "BAT1" },        // Battery charge (percent)
+	{ battery_state,         "%s]",           "BAT1" },        // Battery charging state
+	{ datetime, "%s", "[%a %b %d %R.%S]"},
 };
